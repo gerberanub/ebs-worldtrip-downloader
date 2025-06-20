@@ -29,7 +29,7 @@ def fetch_video_info(session: requests.Session, page_url: str):
     title = title_tag.get_text(strip=True) if title_tag else "video"
 
     # Look for mp4 url in page source
-    match = re.search(r"https://[^"]+\.mp4[^\"]*", resp.text)
+    match = re.search(r'https://[^"]+\.mp4[^"]*', resp.text)
     if not match:
         return title, None
     mp4_url = match.group(0)
